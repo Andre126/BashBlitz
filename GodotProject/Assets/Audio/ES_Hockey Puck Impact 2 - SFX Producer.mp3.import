@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ES_Hockey Puck Impact 2 - SFX Producer.mp3-c3a6570f64d2cb1bcd4295ba21ebd369.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/ES_Hockey Puck Impact 2 - SFX Producer.mp3"
+dest_files=[ "res://.import/ES_Hockey Puck Impact 2 - SFX Producer.mp3-c3a6570f64d2cb1bcd4295ba21ebd369.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

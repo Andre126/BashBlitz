@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Choque.mp3-a294d2f2f0bd1e74e4f1d37ed93b9a5f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Choque.mp3"
+dest_files=[ "res://.import/Choque.mp3-a294d2f2f0bd1e74e4f1d37ed93b9a5f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
