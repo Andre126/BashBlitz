@@ -1,6 +1,6 @@
 extends Node
 
-const BashBot = preload("res://Characters/BashBotR.tscn")
+const BashBot = preload("res://Assets/Scenes/BashBotR.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

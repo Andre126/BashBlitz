@@ -9,7 +9,7 @@ func _init():
 
 func _ready():
 	offset = get_global_transform().origin
-	globalOffset = get_node("/root/Arena/GlobalCamera").get_global_transform().origin
+	#globalOffset = get_node("/root/Arena/GlobalCamera").get_global_transform().origin
 
 func _physics_process(delta):
 	var target = get_parent().get_global_transform().origin

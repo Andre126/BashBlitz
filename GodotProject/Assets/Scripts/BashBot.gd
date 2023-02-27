@@ -173,6 +173,7 @@ func damage(n):
 	damagePercentage += n
 	var scoreBoard = get_node("/root/Arena/scoreBoard"+str(Id))
 	scoreBoard.setDamagePercentage(damagePercentage)
+	AudioManager.makeSound(0)
 
 func comment(collisionBashbot):
 	

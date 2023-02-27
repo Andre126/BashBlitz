@@ -4,7 +4,7 @@ extends Node
 export(Array, AudioStream) var m_AudioDB: Array
 
 # Keys to all the audios
-enum { ACTION_MISC_2, COLLECT_4, FLYING, LONG_SLIDE_DOWN, YOU_BEAST }
+enum { FALLING, HIT, COLLECT, LONG_SLIDE_DOWN, YOU_BEAST }
 
 
 # Start playing the given sound without spacial positioning

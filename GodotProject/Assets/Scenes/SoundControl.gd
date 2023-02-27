@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (Input.is_action_just_pressed("sonido")):
-		$AudioStreamPlayer.play(true)
+		AudioManager.makeSound(0)
 	elif (Input.is_action_just_pressed("sonido2")):
 		$AudioStreamPlayer2.play(true)
 	elif (Input.is_action_just_pressed("sonido3")):

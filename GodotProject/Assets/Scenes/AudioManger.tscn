@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Assets/Audio/Caida.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Scripts/AudioManager.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Audio/Choque.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/Collect 4.wav" type="AudioStream" id=4]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
+m_AudioDB = [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), null, null, null, null ]
