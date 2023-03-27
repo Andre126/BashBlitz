@@ -89,6 +89,7 @@ func chargingDash(_delta):
 		dashCharge += _delta
 	dashPercentage = dashCharge / dashTime
 	arrow.set_scale(Vector3(1,dashPercentage+.25,1))
+	# charge sound
 	
 func releaseDash():
 	isDashing = true
@@ -96,6 +97,7 @@ func releaseDash():
 	linear_velocity += (Vector3(direction.x,0,direction.y)*(dashPercentage*dashImpulse))
 	dashCharge = 0
 	arrow.set_scale(Vector3(1,.25,1))
+	# release dash sound
 	
 func moving(_delta):
 	var vel = sqrt(linear_velocity.x*linear_velocity.x+linear_velocity.z*linear_velocity.z)
@@ -173,6 +175,7 @@ func damage(n):
 	damagePercentage += n
 	var scoreBoard = get_node("/root/Arena/scoreBoard"+str(Id))
 	scoreBoard.setDamagePercentage(damagePercentage)
+	# Choque sonido
 
 func comment(collisionBashbot):
 	
