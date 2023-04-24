@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Audio_DashRecortado.mp3-84dc11809aa6b9bfa9707c5502d07caf.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Audio_DashRecortado.mp3"
+dest_files=[ "res://.import/Audio_DashRecortado.mp3-84dc11809aa6b9bfa9707c5502d07caf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Audio_DashChargingRecortado.mp3-b792ea16af9cb0d98eadc9a43bc2f7f6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Audio_DashChargingRecortado.mp3"
+dest_files=[ "res://.import/Audio_DashChargingRecortado.mp3-b792ea16af9cb0d98eadc9a43bc2f7f6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

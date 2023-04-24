@@ -8,9 +8,19 @@ onready var arrow = $polySurface7/Arrow
 #onready var crashTexture = $MeshInstance/CrashTexture
 onready var camera = get_node("/root/Arena/GlobalCamera")
 onready var tuto = get_node("/root/Arena/TutorialHUD")
+onready var sfx_countdownBeep1 = get_node("/root/Arena/SFX_CountdownBeep1")
+onready var sfx_countdownBeep2 = get_node("/root/Arena/SFX_CountdownBeep2")
+onready var sfx_countdownBell = get_node("/root/Arena/SFX_CountdownBell")
+onready var sfx_dash = get_node("/root/Arena/SFX_Dash")
+onready var sfx_dashCharging = get_node("/root/Arena/SFX_DashCharging")
 onready var sfx_clash = get_node("/root/Arena/SFX_Clash")
 onready var sfx_fall = get_node("/root/Arena/SFX_Fall")
 onready var sfx_respawn = get_node("/root/Arena/SFX_Respawn")
+
+onready var alreadyDashing = false
+onready var alreadyFalling = false
+
+
 onready var world = get_node("/root/Arena/world")
 onready var isDashing = false 
 #const materials = [preload("res://Matirials/mat0.tres"),preload("res://Matirials/mat1.tres"),preload("res://Matirials/mat2.tres"),preload("res://Matirials/mat3.tres")]
@@ -84,6 +94,10 @@ func _ready():
 	
 
 func chargingDash(_delta):
+	if alreadyDashing == false:
+		sfx_dashCharging.play()
+		alreadyDashing = true
+	
 	isDashing = false
 	if dashCharge <= dashTime:
 		dashCharge += _delta
@@ -91,6 +105,9 @@ func chargingDash(_delta):
 	arrow.set_scale(Vector3(1,dashPercentage+.25,1))
 	
 func releaseDash():
+	sfx_dashCharging.stop()
+	alreadyDashing = false
+	sfx_dash.play()
 	isDashing = true
 	var playerPosition = global_transform.origin
 	linear_velocity += (Vector3(direction.x,0,direction.y)*(dashPercentage*dashImpulse))
@@ -112,7 +129,9 @@ func run(_delta):
 	moving(_delta)
 	lookAtCursor(_delta)
 	if abs(global_transform.origin.x) > 25 or abs(global_transform.origin.z) > 18:
-		sfx_fall.play()
+		if alreadyFalling == false:
+			sfx_fall.play()
+			alreadyFalling = true
 		hasFallen = true
 		#print(global_transform.origin)
 	if Input.is_action_just_pressed("Reset"):
@@ -129,7 +148,8 @@ func run(_delta):
 		linear_velocity.x = 0
 		linear_velocity.z = 0
 		damagePercentage = 0
-		sfx_respawn.play()
+		sfx_respawn.play() #
+		alreadyFalling = false # 
 		scale = Vector3(1,1,1)
 		if(wasTouched):
 			var score = get_node("/root/Arena/scoreBoard"+str(lastTouched))
@@ -170,6 +190,7 @@ func _physics_process(_delta):
 			linear_velocity.y = 0
 
 func damage(n):
+	sfx_clash.play()
 	damagePercentage += n
 	var scoreBoard = get_node("/root/Arena/scoreBoard"+str(Id))
 	scoreBoard.setDamagePercentage(damagePercentage)
@@ -177,6 +198,7 @@ func damage(n):
 func comment(collisionBashbot):
 	
 	if collisionBashbot.name == "BashBotController":
+		
 		var accumulatedForce = 0
 		if collisionBashbot.linear_velocity.x < 0:
 			accumulatedForce += collisionBashbot.linear_velocity.x*-1
@@ -205,12 +227,16 @@ func _on_Area_body_exited(body):
 	if body.name == name:
 		#print(body, " exited")
 		#print(self.get_translation())
-		sfx_fall.play()
+		if alreadyFalling == false:
+			sfx_fall.play()
+			alreadyFalling = true
+		
 		hasFallen = true
 		Global.cscore += 1
 
 func _integrate_forces(state):
 	if canRespawn: 
+		alreadyFalling = false
 		canRespawn = false
 		hasFallen = false
 		linear_velocity.x = 0

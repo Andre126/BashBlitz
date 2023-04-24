@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Scripts/GlobalCamera.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scripts/World.gd" type="Script" id=2]
@@ -6,15 +6,20 @@
 [ext_resource path="res://Assets/Meshes/blocker.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Assets/Textures/Tutorial.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Audio/Flying.mp3" type="AudioStream" id=6]
-[ext_resource path="res://Assets/Audio/Action Misc 2.wav" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Audio/Long Slide Down.wav" type="AudioStream" id=8]
-[ext_resource path="res://Assets/Audio/Collect 4.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Audio/Audio_Choque.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/Audio_Caida.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/Audio_Respawn.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Scenes/score.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Materials/mat2.tres" type="Material" id=11]
 [ext_resource path="res://Assets/Materials/mat3.tres" type="Material" id=12]
 [ext_resource path="res://Assets/Materials/mat0.tres" type="Material" id=13]
 [ext_resource path="res://Assets/Materials/mat1.tres" type="Material" id=14]
 [ext_resource path="res://Assets/Fonts/Epilogue-BlackItalic.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Assets/Audio/Audio_CountdownBell.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Audio/Audio_CountdownBeep2.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/Audio/Audio_CountdownBeep1.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Audio/Audio_DashChargingRecortado.mp3" type="AudioStream" id=19]
+[ext_resource path="res://Assets/Audio/Audio_DashRecortado.mp3" type="AudioStream" id=20]
 
 [sub_resource type="PlaneMesh" id=8]
 
@@ -58,8 +63,25 @@ default_font = SubResource( 21 )
 stream = ExtResource( 6 )
 autoplay = true
 
+[node name="SFX_CountdownBeep1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="SFX_CountdownBeep2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="SFX_CountdownBell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="SFX_DashCharging" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="SFX_Dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -10.487
+
 [node name="SFX_Clash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = 18.975
 
 [node name="SFX_Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

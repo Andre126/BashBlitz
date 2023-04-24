@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Audio/Long Slide Down.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Audio/Flying.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Audio/Action Misc 2.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Audio/Collect 4.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/Audio_Respawn.wav" type="AudioStream" id=6]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
